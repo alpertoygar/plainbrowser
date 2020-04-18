@@ -1,13 +1,18 @@
 package main;
 
+import logging.LoggerFactory;
 import ui.Tab;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.logging.Logger;
 
 public class Startup {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Startup.class);
+
     public static void main(String[] args) {
+        LOGGER.info("Starting Plain Browser.");
         JFrame appFrame = getMainAppFrame();
 
         Tab p = getInitialTab();

@@ -1,13 +1,18 @@
 package ui;
 
+import logging.LoggerFactory;
 import networking.Networking;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Tab extends JPanel {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Tab.class);
 
     private String title;
     private JLabel titleLabel;
@@ -26,7 +31,7 @@ public class Tab extends JPanel {
                 content.setText(pageContent);
                 updateUI();
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.log(Level.SEVERE, e.getMessage(), e);
             }
         });
         add(goToUrl);

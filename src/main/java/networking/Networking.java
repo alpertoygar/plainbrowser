@@ -1,16 +1,21 @@
 package networking;
 
+import logging.LoggerFactory;
 import lombok.experimental.UtilityClass;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.logging.Logger;
 
 @UtilityClass
 public class Networking {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Networking.class);
+
     public String doGetRequest(String urlString) throws IOException {
+        LOGGER.info("Fetching " + urlString);
         final URL url = new URL(urlString);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
